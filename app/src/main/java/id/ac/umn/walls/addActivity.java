@@ -213,6 +213,7 @@ public class addActivity extends AppCompatActivity {
         cv.put(MediaStore.Images.Media.DESCRIPTION, "Image description");
 
         imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cv);
+
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA);
@@ -229,7 +230,7 @@ public class addActivity extends AppCompatActivity {
                         .start(this);
             }
             else if (requestCode == IMAGE_PICK_CAMERA){
-                CropImage.activity(data.getData())
+                CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1, 1)
                         .start(this);

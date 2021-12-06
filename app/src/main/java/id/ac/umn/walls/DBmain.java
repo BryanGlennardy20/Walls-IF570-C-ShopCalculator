@@ -72,7 +72,7 @@ public class DBmain extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void editData(String row_id, String itemName, String itemPrice, Uri itemImg){
+    void editData(String row_id, String itemName, String itemPrice, String itemImg){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_ITEM, itemName);

@@ -18,18 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/addPhotoBtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/grey"
-        android:text="Tambah Foto"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/itemImg2"
-        app:layout_constraintStart_toStartOf="@+id/itemImg2"
-        app:layout_constraintTop_toBottomOf="@+id/itemImg2" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

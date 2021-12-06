@@ -111,7 +111,8 @@ public class EditActivity extends AppCompatActivity {
                 //panggil method
                 itemName = addname_input.getText().toString().trim();
                 itemPrice = addprice_input.getText().toString().trim();
-                dBmain.editData(itemId, itemName, itemPrice, imageUri);
+
+                dBmain.editData(itemId, itemName, itemPrice, String.valueOf(imageUri));
 
                 startActivity(new Intent(getApplicationContext()
                         , MainActivity.class));
@@ -130,7 +131,7 @@ public class EditActivity extends AppCompatActivity {
 
     // Untuk melakukan set data ke edit text
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("itemId") && getIntent().hasExtra("itemName") && getIntent().hasExtra("itemPrice")){
+        if(getIntent().hasExtra("itemId") && getIntent().hasExtra("itemName") && getIntent().hasExtra("itemPrice") && getIntent().hasExtra("itemImage")){
 
             // get intent
             itemId = getIntent().getStringExtra("itemId");
@@ -143,7 +144,7 @@ public class EditActivity extends AppCompatActivity {
             addprice_input.setText(itemPrice);
 
             if (imageUri.toString().equals("null")) {
-                itemImg.setImageResource(R.drawable.ic_add_photo);
+                itemImg.setImageResource(R.drawable.ic_photo);
             }else{
                 itemImg.setImageURI(imageUri);
             }
@@ -292,7 +293,7 @@ public class EditActivity extends AppCompatActivity {
                         .start(this);
             }
             else if (requestCode == IMAGE_PICK_CAMERA){
-                CropImage.activity(data.getData())
+                CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1, 1)
                         .start(this);
