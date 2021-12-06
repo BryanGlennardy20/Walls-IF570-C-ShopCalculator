@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -71,7 +72,7 @@ public class DBmain extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void editData(String row_id, String itemName, String itemPrice, String itemImg){
+    void editData(String row_id, String itemName, String itemPrice, Uri itemImg){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_ITEM, itemName);
