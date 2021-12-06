@@ -41,7 +41,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            itemId = itemView.findViewById(R.id.itemId);
             itemName = itemView.findViewById(R.id.itemName);
             itemPrice = itemView.findViewById(R.id.itemPrice);
             itemImage = itemView.findViewById(R.id.itemImg);
@@ -60,7 +59,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        holder.itemId.setText(String.valueOf(id.get(position)));
+
         holder.itemName.setText(String.valueOf(item_name.get(position)));
         holder.itemPrice.setText(String.valueOf(item_price.get(position)));
         holder.itemImage.setImageURI(Uri.parse(String.valueOf(item_image.get(position))));
