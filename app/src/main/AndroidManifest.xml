@@ -33,7 +33,9 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".cartActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Add To Cart"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".addActivity"
             android:exported="true"

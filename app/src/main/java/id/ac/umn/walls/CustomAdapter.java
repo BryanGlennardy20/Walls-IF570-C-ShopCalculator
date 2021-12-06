@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Context context;
     Activity activity;
     private ArrayList id, item_name, item_price, item_image;
+
 
     CustomAdapter(Activity activity, Context context, ArrayList id, ArrayList item_name, ArrayList item_price, ArrayList item_image){
         this.activity = activity;
@@ -37,6 +40,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         TextView itemId, itemName, itemPrice;
         ImageView itemImage;
         Button editHomeBtn;
+        LinearLayout itemRowHome;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -45,6 +49,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             itemPrice = itemView.findViewById(R.id.itemPrice);
             itemImage = itemView.findViewById(R.id.itemImg);
             editHomeBtn = itemView.findViewById(R.id.editHomeBtn);
+            itemRowHome = itemView.findViewById(R.id.itemRowHome);
         }
     }
 
@@ -68,6 +73,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, EditActivity.class);
+                intent.putExtra("itemId", String.valueOf(id.get(position)));
+                intent.putExtra("itemName", String.valueOf(item_name.get(position)));
+                intent.putExtra("itemPrice", String.valueOf(item_price.get(position)));
+                intent.putExtra("itemImage", String.valueOf(item_image.get(position)));
+                activity.startActivityForResult(intent, 1);
+            }
+        });
+
+        holder.itemRowHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, cartActivity.class);
                 intent.putExtra("itemId", String.valueOf(id.get(position)));
                 intent.putExtra("itemName", String.valueOf(item_name.get(position)));
                 intent.putExtra("itemPrice", String.valueOf(item_price.get(position)));
