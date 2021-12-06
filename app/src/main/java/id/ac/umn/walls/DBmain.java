@@ -15,7 +15,7 @@ public class DBmain extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "shopcalculator.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NAME = "my_library";
+    private static final String TABLE_NAME = "my_item";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_ITEM = "item_name";
     private static final String COLUMN_PRICE = "item_price";
